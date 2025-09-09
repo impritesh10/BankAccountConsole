@@ -1,0 +1,30 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+bin/
+obj/
+Debug/
+Release/
+
+# Rider/Resharper
+.idea/
+*.sln.iml
+_ReSharper.*
+*.DotSettings.user
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.fragment.lock.json
+
+# Others
+*.log
+*.vsix
+.vscode/
+*.db
