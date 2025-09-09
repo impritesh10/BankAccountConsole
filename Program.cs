@@ -6,31 +6,29 @@ using System.Threading.Tasks;
 
 namespace BankAccountConsole
 {
-    public class Program
+    public interface IAccount
     {
-        public interface IAccount
-        {
-            void Deposit(decimal amount);
-            bool Withdraw(decimal amount);
-            decimal GetBalance();
-        }
-
-        public class BankAccount : IAccount
-        {
-            public virtual void Deposit(decimal amount) { }
-            public virtual bool Withdraw(decimal amount) { return false; }
-            public decimal GetBalance() { return 0; }
-        }
-
-        public class SavingsAccount : BankAccount
-        {
-            public void ApplyInterest() { }
-            public override bool Withdraw(decimal amount) { return false; }
-        }
-
-        public sealed class FixedDepositAccount : BankAccount
-        {
-            public override bool Withdraw(decimal amount) { return false; }
-        }
+        void Deposit(decimal amount);
+        bool Withdraw(decimal amount);
+        decimal GetBalance();
     }
+
+    public class BankAccount : IAccount
+    {
+        public virtual void Deposit(decimal amount) { }
+        public virtual bool Withdraw(decimal amount) { return false; }
+        public decimal GetBalance() { return 0; }
+    }
+
+    public class SavingsAccount : BankAccount
+    {
+        public void ApplyInterest() { }
+        public override bool Withdraw(decimal amount) { return false; }
+    }
+
+    public sealed class FixedDepositAccount : BankAccount
+    {
+        public override bool Withdraw(decimal amount) { return false; }
+    }
+
 }
